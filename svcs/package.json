@@ -20,6 +20,7 @@
     "koa-logger": "^3.2.1",
     "koa-respond": "^2.1.0",
     "koa-router": "^7.4.0",
+    "mongoose": "^5.7.5",
     "shortid": "^2.2.15",
     "winston": "^3.2.1"
   },

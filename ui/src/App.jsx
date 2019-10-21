@@ -1,14 +1,15 @@
 import React from 'react';
-import styled, {ThemeProvider, createGlobalStyle} from 'styled-components';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import './base.css';
+import Bookmark from './Bookmark';
 
 const colors = {
-    grey: "#cfdbd5", 
-    plat: "#e8eddf", 
-    yellow: "#f5cb5c", 
+    grey: "#cfdbd5",
+    plat: "#e8eddf",
+    yellow: "#f5cb5c",
     black: "#242423",
-    darkgrey: "#333533" 
+    darkgrey: "#333533"
 }
 
 const Body = styled.main`
@@ -20,10 +21,7 @@ const Body = styled.main`
 `;
 
 const Main = styled.div`
-    background: ${props => props.theme.background};
-    flex: auto;
-    display: flex;
-    justify-content: center;
+    background: ${props => props.theme.background}; 
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -31,6 +29,11 @@ const GlobalStyle = createGlobalStyle`
         color: ${props => props.theme.copy};
     }
 `;
+
+const data = {
+    name: 'Messenger', 
+    url: 'https://messenger.com'
+}; 
 
 const App = () => {
     const [theme, setTheme] = React.useState(
@@ -44,11 +47,13 @@ const App = () => {
     console.log(theme);
 
     return (
-        <div>
-            <Body>
-                <Main>hello world</Main>
-            </Body>
-        </div>
+        <Body>
+            <Main>
+                {
+                    [0, 0, 0, 0, 0].map(i => <Bookmark data={data}>hello world</Bookmark>)
+                }
+            </Main>
+        </Body>
     );
 };
 
