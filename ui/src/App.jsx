@@ -16,19 +16,27 @@ const Body = styled.main`
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+	justify-content: center;
     min-height: 100vh;
-    background: #242423; 
+    background: #121212; 
 `;
 
-const Main = styled.div`
+const BookmarkContainer = styled.div`
     background: ${props => props.theme.background}; 
+    display: flex; 
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+    align-content: stretch;
+    
+    margin: 15% auto 0; 
 `;
 
-const GlobalStyle = createGlobalStyle`
-    body {
-        color: ${props => props.theme.copy};
-    }
-`;
+// const GlobalStyle = createGlobalStyle`
+//     body {
+//         color: ${props => props.theme.copy};
+//     }
+// `;
 
 const data = {
     name: 'Messenger', 
@@ -36,23 +44,21 @@ const data = {
 }; 
 
 const App = () => {
-    const [theme, setTheme] = React.useState(
-        localStorage.getItem('theme') || 'light'
-    );
+    // const [theme, setTheme] = React.useState(
+    //     localStorage.getItem('theme') || 'light'
+    // );
 
-    React.useEffect(() => {
-        localStorage.setItem('theme', theme);
-    }, [theme]);
-
-    console.log(theme);
-
+    // React.useEffect(() => {
+    //     localStorage.setItem('theme', theme);
+    // }, [theme]);
+    
     return (
         <Body>
-            <Main>
+            <BookmarkContainer>
                 {
-                    [0, 0, 0, 0, 0].map(i => <Bookmark data={data}>hello world</Bookmark>)
+                    [0, 0, 0, 0, 0, 0, 0, 0].map(i => <Bookmark data={data}>hello world</Bookmark>)
                 }
-            </Main>
+            </BookmarkContainer>
         </Body>
     );
 };
